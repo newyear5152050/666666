@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="180;url=https://www.google.com">
+<title>USA Daily News - America & The World</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f0f0f0;color:#222}
+
+/* Background */
+.usa-flag-bg{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:linear-gradient(180deg,#B22234 0%,#B22234 20%,#fff 20%,#fff 40%,#B22234 40%,#B22234 60%,#fff 60%,#fff 80%,#B22234 80%,#B22234 100%);
+opacity:.05;z-index:-1}
+
+/* Header */
+.header{background:linear-gradient(90deg,#002868,#3C3B6E);color:#fff;padding:20px 0;border-bottom:5px solid #B22234}
+.header-content{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+.logo{display:flex;align-items:center;gap:15px}
+.logo-icon{font-size:2.5rem;color:#FFD700}
+.logo-text{font-size:2.2rem;font-weight:bold}
+
+/* Nav */
+.nav-bar{background:#fff;border-bottom:3px solid #002868}
+.nav-menu{display:flex;list-style:none;padding:15px 20px;flex-wrap:wrap}
+.nav-item{margin-right:20px}
+.nav-item a{text-decoration:none;color:#002868;font-weight:bold;padding:8px 12px;border-radius:5px}
+.nav-item a:hover{background:#002868;color:#fff}
+
+/* Layout */
+.main-container{max-width:1200px;margin:30px auto;padding:0 20px;display:grid;grid-template-columns:2fr 1fr;gap:30px}
+
+/* Article */
+.main-article{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.1)}
+.article-header{position:relative}
+
+/* ⭐ الصورة المحلية */
+.article-image{
+width:100%;
+height:400px;
+object-fit:cover;
+display:block;
+border-bottom:5px solid #B22234;
+background:#ddd
+}
+
+.article-title{
+position:absolute;bottom:0;left:0;right:0;
+background:linear-gradient(to top,rgba(0,40,104,.9),transparent);
+color:#fff;padding:30px
+}
+
+.article-content{padding:30px;line-height:1.8}
+
+/* Sidebar */
+.sidebar{background:#fff;border-radius:10px;padding:20px;box-shadow:0 5px 20px rgba(0,0,0,.1)}
+.news-item{padding:12px 0;border-bottom:1px solid #eee}
+.news-item:last-child{border-bottom:none}
+
+/* Countdown */
+/* .countdown-container{
+background:linear-gradient(135deg,#B22234,#3C3B6E);
+color:#fff;padding:15px;border-radius:10px;margin-top:20px;text-align:center}
+.countdown{font-size:1.5rem;font-weight:bold} */
+
+/* Footer */
+.footer{background:#002868;color:#fff;padding:40px 0;margin-top:50px;text-align:center}
+</style>
+</head>
+
+<body>
+
+<div class="usa-flag-bg"></div>
+
+<header class="header">
+<div class="header-content">
+<div class="logo">
+<div class="logo-icon">🦅</div>
+<div class="logo-text">USA DAILY NEWS</div>
+</div>
+<div>
+<div id="current-date"></div>
+<div id="current-time"></div>
+</div>
+</div>
+</header>
+
+<nav class="nav-bar">
+<ul class="nav-menu">
+<li class="nav-item"><a href="#">HOME</a></li>
+<li class="nav-item"><a href="#">NEWS</a></li>
+<li class="nav-item"><a href="#">POLITICS</a></li>
+<li class="nav-item"><a href="#">ECONOMY</a></li>
+<li class="nav-item"><a href="#">TECH</a></li>
+</ul>
+</nav>
+
+<div class="main-container">
+
+<main class="main-article">
+<div class="article-header">
+
+<!-- ⭐ الصورة من نفس الفولدر -->
+<img src="amr.jpg"
+     alt="American Flag"
+     class="article-image"
+     loading="eager"
+     onerror="this.onerror=null;this.src='https://source.unsplash.com/1600x900/?american-flag';">
+
+<div class="article-title">
+<h1>America expands global leadership with new strategic partnerships</h1>
+</div>
+</div>
+
+<div class="article-content">
+<p><b>WASHINGTON, D.C.</b> — The United States continues strengthening global partnerships and economic cooperation across multiple regions worldwide.</p>
+<p>Officials say the new agreements could boost exports and create thousands of jobs.</p>
+</div>
+</main>
+
+<aside class="sidebar">
+<h3>Latest Updates</h3>
+
+<div class="news-item">NASA prepares Moon mission</div>
+<div class="news-item">Inflation slows this quarter</div>
+<div class="news-item">Tech stocks rise globally</div>
+
+<!-- <div class="countdown-container">
+<div>Redirecting to Google in:</div>
+<div class="countdown" id="countdown">03:00</div>
+</div> -->
+
+</aside>
+</div>
+
+<footer class="footer">
+© 2025 USA Daily News
+</footer>
+
+<script>
+function updateDateTime(){
+const now=new Date();
+document.getElementById('current-date').textContent=now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+document.getElementById('current-time').textContent=now.toLocaleTimeString('en-US');
+}
+setInterval(updateDateTime,1000);updateDateTime();
+
+/* countdown */
+let countdown=180;
+function updateCountdown(){
+let m=Math.floor(countdown/60);
+let s=countdown%60;
+document.getElementById("countdown").textContent=
+`${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+if(countdown>0){countdown--;setTimeout(updateCountdown,1000);}
+}
+updateCountdown();
+</script>
+
+</body>
+</html>
